@@ -4,23 +4,15 @@ package com.yin.erp.base.entity.po;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class BasePo implements Serializable {
-
-    @Id
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @GeneratedValue(generator = "system-uuid")
-    @Column(name = "id", length = 32)
-    private String id;
+public abstract class BasePo extends BaseDataPo {
 
     @Version
     private Long version;
